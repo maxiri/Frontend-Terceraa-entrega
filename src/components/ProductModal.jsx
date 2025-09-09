@@ -1,7 +1,7 @@
 
 import React from "react";
 import { useCartContext } from "../context/CartContext"; 
-import "../scss/base/components/_ProductModal.scss";
+import "../scss/base/components/_productModal.scss";
 
 const ProductModal = ({ product, onClose }) => {
   const { addToCart } = useCartContext();
