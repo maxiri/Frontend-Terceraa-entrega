@@ -1,12 +1,14 @@
+// URL base del backend (sin /api/products)
+const API_BASE = import.meta.env.VITE_API_BASE || "https://backend-tercea-entega-final.onrender.com";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "https://backend-tercea-entega-final.onrender.com/api/products";
-
+// Obtener productos
 export const fetchProducts = async () => {
   const res = await fetch(`${API_BASE}/api/products`);
   if (!res.ok) throw new Error("Error al obtener productos");
   return await res.json();
 };
 
+// Crear producto
 export const createProduct = async (product) => {
   const res = await fetch(`${API_BASE}/api/products`, {
     method: "POST",
@@ -20,6 +22,7 @@ export const createProduct = async (product) => {
   return await res.json();
 };
 
+// Actualizar producto
 export const updateProduct = async (id, data) => {
   const res = await fetch(`${API_BASE}/api/products/${id}`, {
     method: "PUT",
@@ -33,6 +36,7 @@ export const updateProduct = async (id, data) => {
   return await res.json();
 };
 
+// Eliminar producto
 export const deleteProduct = async (id) => {
   const res = await fetch(`${API_BASE}/api/products/${id}`, { method: "DELETE" });
   if (!res.ok) {
@@ -42,6 +46,7 @@ export const deleteProduct = async (id) => {
   return { success: true };
 };
 
+// Enviar carrito
 export const sendCart = async (items, customer = {}) => {
   const res = await fetch(`${API_BASE}/api/cart`, {
     method: "POST",
