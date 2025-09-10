@@ -1,5 +1,5 @@
 
-const API_BASE = import.meta.env.VITE_API_BASE || "https://backend-tercea-entega-final.onrender.com";
+const API_BASE = import.meta.env.VITE_API_BASE || "https://backend-tercea-entega-final.onrender.com/api/products";
 
 export const fetchProducts = async () => {
   const res = await fetch(`${API_BASE}/api/products`);
